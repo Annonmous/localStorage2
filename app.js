@@ -1,18 +1,14 @@
 let users = []
 let loginDashboard = {}
-let newUserData={}
+let userIndex=0;
+
 
 let page = window.location.href
 page = page.split("/")
 page = page[page.length - 1]
 console.log(page)
 
-const getNewData=()=>{
-let data=localStorage.getItem("newLoginUsersData")
-newUserData=JSON.parse(data)
-console.log(newUserData)
-}
-getNewData()
+
 
 
 const getUsers = () => {
@@ -34,22 +30,21 @@ const getLoginData = () => {
 getLoginData()
 
 const editInfo = () => {
+    let takeUser = localStorage.getItem("usersData")
+    users = JSON.parse(takeUser) || []
 
     let newFirstName = document.getElementById("newFirstName").value
     let newLastName = document.getElementById("newLastName").value
     let userImage = document.getElementById("myFile").value
+    users[userIndex].firstName = newFirstName;
+    users[userIndex].lastName = newLastName;
+    localStorage.setItem('usersData', JSON.stringify(users))
+    localStorage.setItem('LoginUsers', JSON.stringify(users[userIndex]))
     // console.log("customize", newFirstName)
     // console.log("customize", newLastName)
     // console.log("customize", userImage)
-
-    let editData = {
-        newFirstName: newFirstName,
-        newLastName: newLastName,
-        userImage: userImage
-
-    }
-
-    localStorage.setItem("newLoginUsersData", JSON.stringify(editData))
+    document.querySelector("h1").innerHTML = newFirstName+newLastName;
+   
 }
 
 const Dashboard = () => {
@@ -162,6 +157,7 @@ const login = () => {
                 localStorage.setItem("LoginUsers", JSON.stringify(users[i]))
                 window.location.href = "./dashboard.html"
                 matched = true
+                userIndex = i;
             }
         }
     }
