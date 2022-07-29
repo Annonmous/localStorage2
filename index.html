@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <style>
+        .row{
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+
+        }
+        body{
+           background: url(assets/images\ \(1\).jpg);
+           background-size: 100% 1500px;
+           background-repeat: no-repeat;
+        }
+        img{
+            border-radius: 20px 0px 0px 20px ;
+        }
+        label{
+            color: white;
+        }
+        .heading{
+            color: white;
+        }
+
+        .alert{
+            display: none;
+        }
+        .active{
+            display: block;
+        }
+
+        #loginUpBtn{
+            color: white;
+         
+            
+        }
+    </style>
+
+</head>
+
+<body>
+
+        <div class="container ">
+            <div class="display-2 mx-5 text-center heading">
+                SignUp Form
+            </div>
+            <div class="row mx-5 my-5 border gx-0">
+                <div class="col-lg-5">
+                    <img src="assets/claudio-schwarz-fd7GA9Jmd4k-unsplash.jpg" alt="" class="img-fluid">
+                </div>
+                <div class="col-lg-7 p-3">
+
+                    <form  onsubmit="signup();return false">
+                        <!-- inner row -->
+                        <div class="row my-5">
+                            <div class="col-lg-6 col-md-12">
+                                <div class="mb-3">
+                                    <label for="firstName" class="form-label">First Name</label>
+                                    <input type="text" class="form-control" id="firstName" required>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                                <div class="mb-3">
+                                    <label for="lastName" class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" id="lastName" required>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <div class="mb-3">
+                                    <label for="userEmail" class="form-label">Email address</label>
+                                    <input type="email" class="form-control" id="userEmail"
+                                        aria-describedby="emailHelp" required>
+                                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
+                                    </div>
+                                </div>
+                                <div class="alert alert-warning" id="emailAlertId" role="alert">
+                                    Sorry This Email Already Taken 
+                                  </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <div class="mb-3">
+                                    <label for="userPassword" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="userPassword" required>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="mb-3">
+                                    <label for="userConfirmPass" class="form-label">Confirm Password</label>
+                                    <input type="password" class="form-control" id="userConfirmPass" required>
+                                </div>
+
+                                <div class="alert alert-danger" id="notMatch" role="alert">
+                                    Password Not Match
+                                  </div>
+                            </div>
+                            
+                            <div class="col-lg-12 mb-5 ">
+                                <input class="datepicker w-50" type="date" id="userDate" data-date-format="mm/dd/yyyy">
+                            </div>
+                            <div class="col-lg-12 d-flex justify-content-center">
+                                <button class="btn btn-outline-danger">SignUp</button>
+                            </div>
+                            <div class="col-lg-2 my-2">
+                                <a href="login.html" id="loginUpBtn">Login</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+</body>
+<script src="app.js"></script>
+</html>
